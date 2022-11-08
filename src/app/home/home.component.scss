@@ -1,0 +1,39 @@
+:host {
+  .img-wrapper {
+    @media (min-width: 768px) {
+      margin: 18rem 1rem 1rem;
+    }
+    @media (min-width: 1024px) {
+      margin: 15rem 1rem 1rem;
+    }
+    @media (min-width: 1440px) {
+      margin: 10rem 1rem 1rem;
+    }
+    margin: 20rem 1rem 1rem;
+    display: flex;
+    justify-content: center;
+
+    img {
+      @media (min-width: 1024px) {
+        width: 90%;
+      }
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .btn-container {
+    @media (min-width: 768px) {
+      margin-top: 8rem;
+    }
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      width: 50%;
+      height: 50px;
+    }
+  }
+}
