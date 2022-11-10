@@ -1,0 +1,37 @@
+:host {
+  .wrapper {
+    position: fixed;
+    bottom: 10px;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+
+    .img-wrapper {
+      margin-bottom: 5px;
+
+      .inside-wrapper {
+        border: 1px solid black;
+        border-radius: 25px;
+
+        &:hover {
+          box-shadow: rgba(45, 35, 66, 0.3) 0 4px 8px,
+            rgba(45, 35, 66, 0.2) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+          transform: translateY(-5px);
+        }
+
+        img {
+          @media (min-width: 768px) {
+            width: 50%;
+          }
+          width: 20%;
+          height: auto;
+          margin: 0.5rem;
+        }
+
+        span {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
