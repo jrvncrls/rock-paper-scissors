@@ -1,4 +1,29 @@
 :host {
+  .opponent {
+    padding-top: 2rem;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+    img {
+      @media (min-width: 768px) {
+        width: 30%;
+      }
+
+      @media (min-width: 1440px) {
+        width: 20%;
+      }
+      width: 50%;
+      height: auto;
+      margin: 0.5rem;
+    }
+  }
+
+  .timer {
+    margin-right: 0;
+    margin-left: 0;
+    height: 200px;
+  }
+
   .wrapper {
     position: fixed;
     bottom: 10px;
@@ -8,6 +33,7 @@
 
     .img-wrapper {
       margin-bottom: 5px;
+      cursor: pointer;
 
       .inside-wrapper {
         border: 1px solid black;
@@ -21,7 +47,10 @@
 
         img {
           @media (min-width: 768px) {
-            width: 50%;
+            width: 60%;
+          }
+          @media (min-width: 1440px) {
+            width: 30%;
           }
           width: 20%;
           height: auto;
