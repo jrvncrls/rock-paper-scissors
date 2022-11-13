@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-play-page',
@@ -8,22 +9,30 @@ import { Component, OnInit } from '@angular/core';
 export class PlayPageComponent implements OnInit {
   Choice = Choice;
 
-  timer = 3;
+  opponentsChoice$ = new BehaviorSubject('');
+  loading$ = new BehaviorSubject(true);
 
-  opponentsChoice!: string;
+  timer = 5;
   playersChoice!: Choice;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.opponentsChoice = this.setOpponentsChoice();
+    setTimeout(() => {
+      this.loading$.next(false);
+      this.startPlay();
+    }, 2000);
+  }
+
+  startPlay(): void {
+    this.opponentsChoice$.next(this.setOpponentsChoice());
 
     let interval = setInterval(() => {
       this.timer--;
       if (this.timer === 0) {
         clearInterval(interval);
         console.log(
-          this.calculateChoices(this.playersChoice, this.opponentsChoice)
+          this.calculateChoices(this.playersChoice, this.opponentsChoice$.value)
         );
       }
     }, 1000);
@@ -39,8 +48,10 @@ export class PlayPageComponent implements OnInit {
 
   calculateChoices(playerChoice: Choice, opponentsChoice: string): Result {
     // Draw
-    if (playerChoice === opponentsChoice) {
-      return Result.Won;
+    console.log('playerChoice', playerChoice);
+    console.log('opponentsChoice', opponentsChoice);
+    if (playerChoice == opponentsChoice) {
+      return Result.Draw;
     }
 
     // Won

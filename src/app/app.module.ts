@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PlayPageComponent } from './play-page/play-page.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PlayPageComponent
+    PlayPageComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

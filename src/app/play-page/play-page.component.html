@@ -1,41 +1,50 @@
-<div class="opponent row">
-  <div class="d-flex justify-content-center mt-2 mb-2">
-    <h3>Opponent's Choice</h3>
-  </div>
+<ng-template [ngIf]="!(loading$ | async)" [ngIfElse]="loading">
+  <div class="opponent row">
+    <div class="d-flex justify-content-center mt-2 mb-2">
+      <h3>Opponent's Choice</h3>
+    </div>
 
-  <div class="d-flex justify-content-center align-items-center">
-    <img src="../../assets/{{opponentsChoice}}.jpg" alt="" />
-    <h1 class="text-uppercase">{{ opponentsChoice }}</h1>
-  </div>
-</div>
-
-<div class="timer d-flex justify-content-center align-items-center">
-  <div class="d-flex justify-content-center align-items-center">
-    <h1>{{ timer }}</h1>
-  </div>
-</div>
-
-<div class="wrapper row">
-  <div class="d-flex justify-content-center mb-3">
-    <h3>Choose Your Weapon</h3>
-  </div>
-
-  <div class="img-wrapper col-md-4" (click)="setPlayersChoice(Choice.Rock)">
-    <div class="inside-wrapper">
-      <img src="../../assets/rock.jpg" alt="" />
-      <span>ROCK</span>
+    <div class="d-flex justify-content-center align-items-center">
+      <img src="../../assets/{{ opponentsChoice$ | async }}.jpg" alt="" />
+      <h1 class="text-uppercase">{{ opponentsChoice$ | async }}</h1>
     </div>
   </div>
-  <div class="img-wrapper col-md-4" (click)="setPlayersChoice(Choice.Paper)">
-    <div class="inside-wrapper">
-      <img src="../../assets/paper.jpg" alt="" />
-      <span>PAPER</span>
+
+  <div class="timer d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-center align-items-center">
+      <h1 >{{ timer }}</h1>
     </div>
   </div>
-  <div class="img-wrapper col-md-4" (click)="setPlayersChoice(Choice.Scissor)">
-    <div class="inside-wrapper">
-      <img src="../../assets/scissors.jpg" alt="" />
-      <span>SCISSOR</span>
+
+  <div class="wrapper row">
+    <div class="d-flex justify-content-center mb-3">
+      <h1>Choose Your Weapon</h1>
+    </div>
+
+    <div class="img-wrapper col-md-4" (click)="setPlayersChoice(Choice.Rock)">
+      <div class="inside-wrapper">
+        <img src="../../assets/rock.jpg" alt="" />
+        <span>ROCK</span>
+      </div>
+    </div>
+    <div class="img-wrapper col-md-4" (click)="setPlayersChoice(Choice.Paper)">
+      <div class="inside-wrapper">
+        <img src="../../assets/paper.jpg" alt="" />
+        <span>PAPER</span>
+      </div>
+    </div>
+    <div
+      class="img-wrapper col-md-4"
+      (click)="setPlayersChoice(Choice.Scissor)"
+    >
+      <div class="inside-wrapper">
+        <img src="../../assets/scissors.jpg" alt="" />
+        <span>SCISSOR</span>
+      </div>
     </div>
   </div>
-</div>
+</ng-template>
+
+<ng-template #loading>
+  <app-loader></app-loader>
+</ng-template>
